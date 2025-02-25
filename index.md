@@ -1,4 +1,4 @@
 # CS30 demos
-- [colour swap timer](Colour-time-swap)
+- [colour swap timer](colour-time-swap)
 
 # CS30 projects
