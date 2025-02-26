@@ -66,7 +66,6 @@ function keyPressed(){
   }
 }
 
-// erases when "e" is pressed and when it's not it goes back to the pen
 function displayEraser(){
   if (keyIsDown(69) === true){ 
     circle(xSpot, ySpot, size);
@@ -83,23 +82,13 @@ function changeScreen(){
     rect(0,0,width,height);
     displayScreen();
     if (keyCode === ENTER){
+      clear(); 
       screen = "draw";
     }
   }
   else if (screen === "draw"){
-    noStroke();
-    //   displays a "control board"
-    fill("#00FF01");
-    rect(0, 0, width, 50);
-    //   erasure instructions
-    fill("black");
-    text('e to erase', 50, 25);
-    //   square showing what colour your pen is
-    fill (r, g, b);
-    rect(10, 10, 25, 25);
-    //   calls for the pen and the eraser 
-    displayPen();
-    displayEraser();
+
+    drawingScreen();
   }
 }
 
@@ -108,11 +97,33 @@ function displayScreen(){
   textAlign(CENTER);
   stroke("black");
   fill("black");
-  text('Press i for intructions', width/2, height/2);
+  text('Press and hold mouse to draw, up and down arrows to adjust brush size', width/2, height/2);
+  fill("black");
+  text('Press enter key to begin drawing', width/2, height/2 + 20);
   fill("red");
-  text('r to make redder, t to make less red', width/2, height/2);
+  text('r to make redder, t to make less red', width/2, height/2 - 20);
   fill("green");
-  text('g to make greener, h to make less green', width/2, height/2);
+  text('g to make greener, h to make less green', width/2, height/2 - 40);
   fill("blue");
-  text('b to make bluer, n to make less blue', width/2, height/2);
+  text('b to make bluer, n to make less blue', width/2, height/2 - 60);
+}
+
+function drawingScreen(){
+  noStroke();
+  //   displays a "control board"
+  fill("#00FF01");
+  rect(0, 0, width, 50);
+  //   erasure instructions
+  fill("black");
+  text('e to erase', 100, 30);
+  //   square showing what colour your pen is
+  fill (r, g, b);
+  rect(10, 10, 25, 25);
+  //   calls for the pen and the eraser 
+  displayPen();
+  displayEraser();
+}
+
+function windowResized(){
+  resizeCanvas(windowWidth, windowHeight);
 }
