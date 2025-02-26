@@ -69,7 +69,7 @@ function keyPressed(){
 // erases when "e" is pressed and when it's not it goes back to the pen
 function displayEraser(){
   if (keyIsDown(69) === true){ 
-    circle(xSpot, ySpot, size)
+    circle(xSpot, ySpot, size);
     erase();
   }
   else{
@@ -79,39 +79,40 @@ function displayEraser(){
 }
 function changeScreen(){
   if (screen === "start"){
-    fill("white")
-    rect(0,0,width,height)
+    fill("white");
+    rect(0,0,width,height);
     displayScreen();
     if (keyCode === ENTER){
       screen = "draw";
     }
   }
   else if (screen === "draw"){
-        noStroke();
-  //   displays a "control board"
-        fill("#00FF01");
-        rect(0, 0, width, 50);
-//   erasure instructions
-        fill("black");
-        text('e to erase', 50, 25);
-//   square showing what colour your pen is
-        fill (r, g, b);
-        rect(10, 10, 25, 25);
-//   calls for the pen and the eraser 
-        displayPen();
-        displayEraser();
+    noStroke();
+    //   displays a "control board"
+    fill("#00FF01");
+    rect(0, 0, width, 50);
+    //   erasure instructions
+    fill("black");
+    text('e to erase', 50, 25);
+    //   square showing what colour your pen is
+    fill (r, g, b);
+    rect(10, 10, 25, 25);
+    //   calls for the pen and the eraser 
+    displayPen();
+    displayEraser();
   }
 }
 
 function displayScreen(){
   textSize(16);
+  textAlign(CENTER);
   stroke("black");
   fill("black");
-  text('Press i for intructions', width - 400, height - 300)
+  text('Press i for intructions', width/2, height/2);
   fill("red");
-  text('r to make redder, t to make less red', width - 600, height - 280)
+  text('r to make redder, t to make less red', width/2, height/2);
   fill("green");
-  text('g to make greener, h to make less green', width - 600, height - 260)
+  text('g to make greener, h to make less green', width/2, height/2);
   fill("blue");
-  text('b to make bluer, n to make less blue', width - 600, height - 240)
+  text('b to make bluer, n to make less blue', width/2, height/2);
 }
