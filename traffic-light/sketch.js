@@ -6,8 +6,7 @@
 // changing according to time. You may want to investigate the millis()
 // function at https://p5js.org/reference/#/p5/millis
 
-let colour = "red";
-let waitTime = 5000;
+let colour = "green";
 let lastSwitchedTime = 0; 
 const GREEN_LIGHT_DURATION = 3000;
 const YELLOW_LIGHT_DURATION = 1000;
@@ -29,11 +28,10 @@ function drawOutlineOfLights() {
   rectMode(CENTER);
   fill(0);
   rect(width/2, height/2, 75, 200, 10);
- 
-  // fill(colour);
-  // ellipse(width/2, height/2, 50, 50); //middle
-  // fill(colour);
-  // ellipse(width/2, height/2 + 65, 50, 50); //bottom
+  fill(255);
+  ellipse(width/2, height/2 - 65, 50, 50); //top
+  ellipse(width/2, height/2, 50, 50); //middle
+  ellipse(width/2, height/2 + 65, 50, 50); //bottom
 
 }
 function rightLightColour(){
