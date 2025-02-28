@@ -126,6 +126,9 @@ function drawingScreen(){
   text('e to erase', 100, 30);
   text('size: ', 220, 30);
   text(size, 250, 30);
+  text(r, 280, 30);
+  text(g, 310, 30);
+  text(b, 340, 30);
   //   square showing what colour your pen is
   fill (r, g, b);
   rect(10, 10, 25, 25);
