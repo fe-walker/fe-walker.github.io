@@ -20,6 +20,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   stroke(255, 255, 255);
   cursor(CROSS);
+  saveAsImage();
 }
 
 function draw() {
@@ -99,6 +100,7 @@ function changeScreen(){
 
 function displayScreen(){
   // displays instructions for the user 
+  textFont('Verdana');
   textSize(16);
   textAlign(CENTER);
   stroke("black");
@@ -117,11 +119,13 @@ function displayScreen(){
 function drawingScreen(){
   noStroke();
   //   displays a "control board"
-  fill("#00FF01");
+  fill("#66a1fa");
   rect(0, 0, width, 50);
   //   erasure instructions
   fill("black");
   text('e to erase', 100, 30);
+  text('size: ', 220, 30);
+  text(size, 250, 30);
   //   square showing what colour your pen is
   fill (r, g, b);
   rect(10, 10, 25, 25);
