@@ -1,13 +1,12 @@
 // Project Title
-// Your Name
-// Date
+// Faith Walker
+// 3/4/2025
 //
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
 
 
 // set variables 
-
 let xSpot = 0;
 let ySpot = 0;
 let size = 10; 
@@ -20,17 +19,16 @@ let screen = "start";
 function setup() {
   createCanvas(windowWidth, windowHeight);
   stroke(255, 255, 255);
-
 }
 
 function draw() {
   changeScreen();
-  
 }
 
 
 
 function displayPen(){
+  // shows the pen used to draw 
   if (mouseIsPressed){
     noStroke();
     fill(r, g, b);
@@ -40,43 +38,49 @@ function displayPen(){
 
 // changes size and colour of pen based on the keys pressed 
 function keyPressed(){
+  // increase pen size 
   if (keyCode === UP_ARROW){
     size = size += 5;
   }
+  // decrease pen size
   else if (keyCode === DOWN_ARROW){
     size = size -= 5;
   }
+  // changes R G B values of pen
   else if (key === 'r'){
-    r = r += 50;
+    r = r += 20;
   }
   else if (key === 'b'){
-    b = b += 50;
+    b = b += 20;
   }
   else if (key === 'g'){
-    g = g += 50;
+    g = g += 20;
   }
   else if (key === 't'){
-    r = r -= 50;
+    r = r -= 20;
   }
   else if (key === 'n'){
-    b = b -= 50;
+    b = b -= 20;
   }
   else if (key === 'h'){
-    g = g -= 50;
+    g = g -= 20;
   }
 }
 
 function displayEraser(){
+  // when 'e' key is being pressed pen turns to an eraser 
   if (keyIsDown(69) === true){ 
     circle(xSpot, ySpot, size);
     erase();
   }
   else{
+    // makes it so that when 'e' isnt being pressed it goes back to pen
     noErase();
     displayPen();
   }
 }
 function changeScreen(){
+  // displays a starting instruction screen
   if (screen === "start"){
     fill("white");
     rect(0,0,width,height);
@@ -86,13 +90,14 @@ function changeScreen(){
       screen = "draw";
     }
   }
+  // displays drawing canvas with pen and control board
   else if (screen === "draw"){
-
     drawingScreen();
   }
 }
 
 function displayScreen(){
+  // displays instructions for the user 
   textSize(16);
   textAlign(CENTER);
   stroke("black");
