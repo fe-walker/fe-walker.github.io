@@ -19,6 +19,7 @@ let screen = "start";
 function setup() {
   createCanvas(windowWidth, windowHeight);
   stroke(255, 255, 255);
+  cursor(CROSS);
 }
 
 function draw() {
@@ -127,6 +128,12 @@ function drawingScreen(){
   //   calls for the pen and the eraser 
   displayPen();
   displayEraser();
+}
+
+function saveAsImage(){
+  if (keyCode === '53'){
+    saveCanvas('drawing','jpg');
+  }
 }
 
 function windowResized(){
