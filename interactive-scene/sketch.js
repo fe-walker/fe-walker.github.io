@@ -43,29 +43,53 @@ function keyPressed(){
   // increase pen size 
   if (keyCode === UP_ARROW){
     size = size += 5;
+    if (size > 200){
+      size = 200;
+    }
   }
   // decrease pen size
   else if (keyCode === DOWN_ARROW){
     size = size -= 5;
+    if (size < 0){
+      size = 0;
+    }
   }
   // changes R G B values of pen
   else if (key === 'r'){
     r = r += 20;
+    if (r>260){
+      r = 260;
+    }
   }
   else if (key === 'b'){
     b = b += 20;
+    if (b>260){
+      b = 260;
+    }
   }
   else if (key === 'g'){
     g = g += 20;
+    if (g>260){
+      g = 260;
+    }
   }
   else if (key === 't'){
     r = r -= 20;
+    if (r < 0){
+      r = 0;
+    }
   }
   else if (key === 'n'){
     b = b -= 20;
+    if (b < 0){
+      b = 0;
+    }
   }
   else if (key === 'h'){
     g = g -= 20;
+    if (g < 0){
+      g = 0;
+    }
   }
 }
 
@@ -126,9 +150,9 @@ function drawingScreen(){
   text('e to erase', 100, 30);
   text('size: ', 220, 30);
   text(size, 250, 30);
-  text(r, 280, 30);
-  text(g, 310, 30);
-  text(b, 340, 30);
+  text(r, 285, 30);
+  text(g, 320, 30);
+  text(b, 360, 30);
   //   square showing what colour your pen is
   fill (r, g, b);
   rect(10, 10, 25, 25);
