@@ -3,7 +3,7 @@
 // 3/4/2025
 //
 // Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+// when spacebar is pressed, the user can add their own text to the canvas
 
 
 // set variables 
@@ -13,18 +13,22 @@ let size = 10;
 let r = 0;
 let g = 0;
 let b = 0;
+let myInput;
 let screen = "start";
 
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  myInput = createInput();
+  myInput.position(width - 500, 20);
+
   stroke(255, 255, 255);
   cursor(CROSS);
-  saveAsImage();
 }
 
 function draw() {
   changeScreen();
+  addText();
 }
 
 
@@ -146,6 +150,7 @@ function drawingScreen(){
   fill("#66a1fa");
   rect(0, 0, width, 50);
   //   erasure instructions
+  textSize(16);
   fill("black");
   text('e to erase', 100, 30);
   text('size: ', 220, 30);
@@ -153,6 +158,7 @@ function drawingScreen(){
   text(r, 285, 30);
   text(g, 320, 30);
   text(b, 360, 30);
+  text('Add Text: ', 1000, 30);
   //   square showing what colour your pen is
   fill (r, g, b);
   rect(10, 10, 25, 25);
@@ -161,10 +167,11 @@ function drawingScreen(){
   displayEraser();
 }
 
-function saveAsImage(){
-  if (keyCode === '53'){
-    saveCanvas('drawing','jpg');
-  }
+
+function addText(){
+  let userText = myInput.value();
+  textSize(size);
+  text(userText, mouseX, mouseY);
 }
 
 function windowResized(){
