@@ -17,10 +17,11 @@ let myInput;
 let screen = "start";
 
 
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   myInput = createInput();
-  myInput.position(width - 500, 20);
+  myInput.position(1050, 20);
 
   stroke(255, 255, 255);
   cursor(CROSS);
@@ -28,7 +29,6 @@ function setup() {
 
 function draw() {
   changeScreen();
-  addText();
 }
 
 
@@ -60,37 +60,37 @@ function keyPressed(){
   }
   // changes R G B values of pen
   else if (key === 'r'){
-    r = r += 20;
+    r = r += 10;
     if (r>260){
       r = 260;
     }
   }
   else if (key === 'b'){
-    b = b += 20;
+    b = b += 10;
     if (b>260){
       b = 260;
     }
   }
   else if (key === 'g'){
-    g = g += 20;
+    g = g += 10;
     if (g>260){
       g = 260;
     }
   }
   else if (key === 't'){
-    r = r -= 20;
+    r = r -= 10;
     if (r < 0){
       r = 0;
     }
   }
   else if (key === 'n'){
-    b = b -= 20;
+    b = b -= 10;
     if (b < 0){
       b = 0;
     }
   }
   else if (key === 'h'){
-    g = g -= 20;
+    g = g -= 10;
     if (g < 0){
       g = 0;
     }
@@ -123,6 +123,9 @@ function changeScreen(){
   // displays drawing canvas with pen and control board
   else if (screen === "draw"){
     drawingScreen();
+    if (keyIsDown(32)){
+      addText();
+    }
   }
 }
 
