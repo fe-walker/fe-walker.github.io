@@ -1,9 +1,9 @@
-// Project Title
+// CS30 Interactive Scene - Painter Maker
 // Faith Walker
 // 3/4/2025
 //
 // Extra for Experts:
-// when spacebar is pressed, the user can add their own text to the canvas
+// when spacebar is pressed, the user can add their own text to the canvas, or use text as a brush.
 
 
 // set variables 
@@ -20,6 +20,7 @@ let screen = "start";
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  // create text input box 
   myInput = createInput();
   myInput.position(1050, 20);
 
@@ -172,11 +173,13 @@ function drawingScreen(){
 
 
 function addText(){
+  // when text is typed it can be put on the canvas
   let userText = myInput.value();
   textSize(size);
   text(userText, mouseX, mouseY);
 }
 
+// resize the window
 function windowResized(){
   resizeCanvas(windowWidth, windowHeight);
 }
