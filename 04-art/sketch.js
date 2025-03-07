@@ -1,16 +1,24 @@
 // generative art demo using object notation and arrays 
 
-let someLine;
+const LINE_SIZE = 2;
+let lineArray = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  someLine = spawnLine(width/2, height/2, 400);
+  for (let x = 0; x < width; x += LINE_SIZE){
+    for (let y = 0; y < height; y += LINE_SIZE){
+      let aLine = spawnLine(x, y, LINE_SIZE);
+      lineArray.push(aLine);
+    }
+  }
 }
 
 function draw() {
   background(220);
   
-  line(someLine.x1, someLine.y1, someLine.x2, someLine.y2);
+  for (let aLine of lineArray){
+    displayLine(aLine);
+  }
 }
 
 function spawnLine(x, y, theSize){
@@ -35,4 +43,8 @@ function spawnLine(x, y, theSize){
     };
   }
   return theLine;
+}
+
+function displayLine(aLine){
+  line(aLine.x1, aLine.y1, aLine.x2, aLine.y2);
 }
