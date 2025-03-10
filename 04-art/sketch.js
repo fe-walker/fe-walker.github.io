@@ -1,7 +1,8 @@
 // generative art demo using object notation and arrays 
 
-const LINE_SIZE = 2;
+const LINE_SIZE = 10;
 let lineArray = [];
+let randomColour = random(220);
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
