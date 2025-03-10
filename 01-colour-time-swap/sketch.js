@@ -32,6 +32,6 @@ function showBackground(){
     background("white");
   }
   else{
-    background("black")
+    background("black");
   }
 }
