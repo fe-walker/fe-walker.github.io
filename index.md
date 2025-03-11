@@ -3,6 +3,7 @@
 - [traffic light](02-traffic-light)
 - [bouncing balls](03-bouncing-balls)
 - [generative art](04-art)
+- [perlin noise demo](05-perlin)
 
 # CS30 projects
 - [Interactive Scene](interactive-scene)
