@@ -4,6 +4,7 @@
 - [bouncing balls](03-bouncing-balls)
 - [generative art](04-art)
 - [perlin noise demo](05-perlin)
+- [Terrain generation demo](06-terrain-demo)
 
 # CS30 projects
 - [Interactive Scene](interactive-scene)
