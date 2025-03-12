@@ -7,56 +7,51 @@
 
 let x;
 let y;
-let dx = 0; 
-let dy = 1000;
-let deltaTime = 0.05;
-let screen = "start"; 
+// let dx = 0; 
+// let dy = 1000;
+// let deltaTime = 0.01;
+// let screen = "start"; 
 let ghostArray = [];
+// let dx = 5;
+// let dy = 5; change variable names
+let thing;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  imageMode(CENTER);
+  spawnGhost();
 }
 
 function draw() {
-  background(0);
-  changeScreen();
+  background(220);
   for (let ghost of ghostArray){
-    moveGhosts(ghost);
+    // moveGhosts(ghost);
     displayGhosts(ghost);
   }
 }
 
-function changeScreen(){
-  if (screen === "start"){
-    entranceScreen();
-    if (mouseClicked){
-      screen = "mode1";
-    }
-  }
-  else if (screen === "mode1"){
-  }
-}
-
-function entranceScreen(){
-  fill("#defa61");
-  text('name in progress', width/2, height/2);
-  x = noise(dx)*width;
-  y = noise(dy)*height;
-  fill("#defa61");
-  circle(x, y, random(15));
-
-  dx += deltaTime;
-  dy += deltaTime;
-  // if screen is clicked i want to change to a main screen 
-}
-
-function mode1(){
-
-}
-
 function spawnGhost(){
   let someGhost = {
-    // values
+    x: width/2,
+    y: height/2,
+    w: 20,
+    h: 20,
+    img: thing,
+    dx: random(5),
+    dy: random(5),
+
   };
-  // ballArray.push(someBall);
+  ghostArray.push(someGhost);
+}
+
+function preload(){
+  thing = loadImage("ghost-image.jfif");
+}
+
+function displayGhosts(ghost){
+  image(ghost.img, ghost.x, ghost.y, ghost.img.w, ghost.img.h);
+}
+
+function moveGhosts(ghost){
+  
 }
