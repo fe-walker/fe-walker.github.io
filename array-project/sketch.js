@@ -7,13 +7,7 @@
 
 let x;
 let y;
-// let dx = 0; 
-// let dy = 1000;
-// let deltaTime = 0.01;
-// let screen = "start"; 
 let ghostArray = [];
-// let dx = 5;
-// let dy = 5; change variable names
 let thing;
 
 function setup() {
@@ -32,10 +26,10 @@ function draw() {
 
 function spawnGhost(){
   let someGhost = {
-    x: width/2,
-    y: height/2,
-    w: 1,
-    h: 1,
+    x: random(width),
+    y: random(height),
+    w: 10,
+    h: 10,
     img: thing,
     dx: random(5),
     dy: random(5),
@@ -49,10 +43,14 @@ function preload(){
 }
 
 function displayGhosts(ghost){
-  image(ghost.img, ghost.x, ghost.y, ghost.img.w, ghost.img.h);
+  image(ghost.img, ghost.x, ghost.y, ghost.w, ghost.h);
 }
 
 function moveGhosts(ghost){
   ghost.w += ghost.dx;
   ghost.h += ghost.dy;
+}
+
+function mousePressed(){
+  spawnGhost();
 }
