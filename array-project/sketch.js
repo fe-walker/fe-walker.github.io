@@ -25,7 +25,7 @@ function setup() {
 function draw() {
   background(220);
   for (let ghost of ghostArray){
-    // moveGhosts(ghost);
+    moveGhosts(ghost);
     displayGhosts(ghost);
   }
 }
@@ -34,8 +34,8 @@ function spawnGhost(){
   let someGhost = {
     x: width/2,
     y: height/2,
-    w: 20,
-    h: 20,
+    w: 1,
+    h: 1,
     img: thing,
     dx: random(5),
     dy: random(5),
@@ -53,5 +53,6 @@ function displayGhosts(ghost){
 }
 
 function moveGhosts(ghost){
-  
+  ghost.w += ghost.dx;
+  ghost.h += ghost.dy;
 }
