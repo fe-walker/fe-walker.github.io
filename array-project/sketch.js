@@ -17,7 +17,7 @@ function setup() {
 }
 
 function draw() {
-  background(220);
+  background(0);
   for (let ghost of ghostArray){
     moveGhosts(ghost);
     displayGhosts(ghost);
@@ -31,15 +31,14 @@ function spawnGhost(){
     w: 10,
     h: 10,
     img: thing,
-    dx: random(5),
-    dy: random(5),
+    speed: random(5),
 
   };
   ghostArray.push(someGhost);
 }
 
 function preload(){
-  thing = loadImage("ghost-image.jfif");
+  thing = loadImage("ghost-image-transparent.png");
 }
 
 function displayGhosts(ghost){
@@ -47,8 +46,8 @@ function displayGhosts(ghost){
 }
 
 function moveGhosts(ghost){
-  ghost.w += ghost.dx;
-  ghost.h += ghost.dy;
+  ghost.w += ghost.speed;
+  ghost.h += ghost.speed;
 }
 
 function mousePressed(){
