@@ -1,9 +1,9 @@
-// Project Title
+// CS30 Interactive Scene - Painter Maker
 // Faith Walker
 // 3/4/2025
 //
 // Extra for Experts:
-// when spacebar is pressed, the user can add their own text to the canvas
+// when spacebar is pressed, the user can add their own text to the canvas, or use text as a brush.
 
 
 // set variables 
@@ -17,8 +17,10 @@ let myInput;
 let screen = "start";
 
 
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  // create text input box 
   myInput = createInput();
   myInput.position(1050, 20);
 
@@ -28,7 +30,6 @@ function setup() {
 
 function draw() {
   changeScreen();
-  addText();
 }
 
 
@@ -60,37 +61,37 @@ function keyPressed(){
   }
   // changes R G B values of pen
   else if (key === 'r'){
-    r = r += 20;
+    r = r += 10;
     if (r>260){
       r = 260;
     }
   }
   else if (key === 'b'){
-    b = b += 20;
+    b = b += 10;
     if (b>260){
       b = 260;
     }
   }
   else if (key === 'g'){
-    g = g += 20;
+    g = g += 10;
     if (g>260){
       g = 260;
     }
   }
   else if (key === 't'){
-    r = r -= 20;
+    r = r -= 10;
     if (r < 0){
       r = 0;
     }
   }
   else if (key === 'n'){
-    b = b -= 20;
+    b = b -= 10;
     if (b < 0){
       b = 0;
     }
   }
   else if (key === 'h'){
-    g = g -= 20;
+    g = g -= 10;
     if (g < 0){
       g = 0;
     }
@@ -123,6 +124,9 @@ function changeScreen(){
   // displays drawing canvas with pen and control board
   else if (screen === "draw"){
     drawingScreen();
+    if (keyIsDown(32)){
+      addText();
+    }
   }
 }
 
@@ -169,11 +173,13 @@ function drawingScreen(){
 
 
 function addText(){
+  // when text is typed it can be put on the canvas
   let userText = myInput.value();
   textSize(size);
   text(userText, mouseX, mouseY);
 }
 
+// resize the window
 function windowResized(){
   resizeCanvas(windowWidth, windowHeight);
 }
