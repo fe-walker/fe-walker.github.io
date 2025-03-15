@@ -20,7 +20,7 @@ let screen = "start";
 function setup() {
   createCanvas(windowWidth, windowHeight);
   myInput = createInput();
-  myInput.position(width - 500, 20);
+  myInput.position(1050, 20);
 
   stroke(255, 255, 255);
   cursor(CROSS);
@@ -148,7 +148,7 @@ function drawingScreen(){
   noStroke();
   //   displays a "control board"
   fill("#66a1fa");
-  rect(0, 0, width, 50);
+  rect(0, 0, windowWidth, 50);
   //   erasure instructions
   textSize(16);
   fill("black");
