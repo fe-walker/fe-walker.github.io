@@ -12,17 +12,18 @@ let x;
 let y;
 let ghostArray = [];
 let thing;
-let waitTime = 2000;
-let lastSpawnedTime = 0;
 let screen = "start";
 let isAlive = true;
 let ghostSize = 0;
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   imageMode(CENTER);
   spawnGhost();
   cursor(CROSS);
+
+  window.setInterval(spawnGhost, 500);
 }
 
 function draw() {
@@ -32,12 +33,12 @@ function draw() {
 
 function spawnGhost(){
   let someGhost = {
-    x: random(width),
-    y: random(height),
+    x: random(300, windowWidth - 300),
+    y: random(50, windowHeight - 50),
     w: 10,
     h: 10,
     img: thing,
-    speed: random(5),
+    speed: random(3, 15),
 
   };
   ghostArray.push(someGhost);
@@ -48,7 +49,7 @@ function preload(){
 }
 
 function displayGhosts(ghost){
-  image(ghost.img, ghost.x, ghost.y, ghost.w, ghost.h);
+  image(ghost.img, ghost.x, ghost.y, ghost.w, ghost.h );
 }
 
 function moveGhosts(ghost){
@@ -57,12 +58,6 @@ function moveGhosts(ghost){
   ghostSize += 1;
 }
 
-function moreGhosts(){
-  if (millis() > lastSpawnedTime + waitTime){
-    spawnGhost();
-    lastSpawnedTime += 700;
-  }
-}
 
 function changeScreenIfNeeded(){
   if (screen === "start"){
@@ -78,16 +73,10 @@ function changeScreenIfNeeded(){
       fill("white");
       text(ghostSize, width/2 - 50, height/2 - 50);
       displayGhosts(ghost);
-      moreGhosts();
-      if (ghostSize > 1000){
+      if (ghostSize > 400){
         fill("red");
         text("dead", width/2, height/2);
       }
-      // else if (img.mousePressed()){
-      //   fill("green");
-      //   text("shot", width/2 +50, height/2 + 50);
-
-      // }
     }
   }
   
@@ -102,4 +91,17 @@ function displayInstruction(){
   rect(295,0,width - 600,height);
   fill("rgb(247, 232, 232)");
   text("GHOST HUNTER", width/2.25, height/2);
+}
+
+function mousePressed(){
+  for (let ghost of ghostArray){
+    if (dist(mouseX, mouseY, ghost.x, ghost.y) < ghost.w && ghost.h){
+      fill("green");
+      text("shot", width/2 +50, height/2 + 50);
+      let index = ghostArray.indexOf(ghost);
+      ghostArray.splice(index, 1);
+      ghostSize = 0;
+    }
+  }
+  
 }
