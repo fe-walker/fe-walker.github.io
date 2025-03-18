@@ -15,26 +15,26 @@ let thing;
 let screen = "start";
 let isAlive = true;
 let ghostSize = 0;
+let deathSpots = [];
 
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  imageMode(CENTER);
-  spawnGhost();
   cursor(CROSS);
 
-  window.setInterval(spawnGhost, 500);
+  // showGhosts();
 }
 
 function draw() {
   background(0);
   changeScreenIfNeeded();
+  showShot();
 }
 
 function spawnGhost(){
   let someGhost = {
-    x: random(300, windowWidth - 300),
-    y: random(50, windowHeight - 50),
+    x: random(50, windowWidth - 50),
+    y: random(300, windowHeight-300),
     w: 10,
     h: 10,
     img: thing,
@@ -65,21 +65,31 @@ function changeScreenIfNeeded(){
     if (keyCode === ENTER){
       clear(); 
       screen = "play";
+      showGhosts();
     }
   }
   else if (screen === "play"){
+    // showGhosts();
+    // imageMode(CENTER);
+    // spawnGhost();
+    // window.setInterval(spawnGhost, 500);
     for (let ghost of ghostArray){
       moveGhosts(ghost);
-      fill("white");
-      text(ghostSize, width/2 - 50, height/2 - 50);
       displayGhosts(ghost);
       if (ghostSize > 400){
-        fill("red");
-        text("dead", width/2, height/2);
+        clear();
+        screen = "dead";
       }
     }
   }
-  
+  else if (screen === "dead"){
+    clear();
+    ghostSize = 0;
+    // show dead screen
+    if (keyCode === 82){
+      screen = "start";
+    }
+  }
 }
 
 function displayInstruction(){
@@ -95,13 +105,31 @@ function displayInstruction(){
 
 function mousePressed(){
   for (let ghost of ghostArray){
-    if (dist(mouseX, mouseY, ghost.x, ghost.y) < ghost.w && ghost.h){
-      fill("green");
-      text("shot", width/2 +50, height/2 + 50);
+    if (dist(mouseX, mouseY, ghost.x, ghost.y) < ghost.w){
+      // the ghosts are dying no matter where i click change this 
       let index = ghostArray.indexOf(ghost);
       ghostArray.splice(index, 1);
       ghostSize = 0;
     }
   }
-  
+  let spot = {
+    x: mouseX,
+    y: mouseY,
+  };
+  deathSpots.push(spot);
+}
+
+function showShot(){
+  if (screen === "play"){
+    for (let shot of deathSpots){
+      fill("green");
+      text("shot", shot.x, shot.y);
+    }
+  }
+}
+
+function showGhosts(){
+  imageMode(CENTER);
+  spawnGhost();
+  window.setInterval(spawnGhost, 500);
 }
