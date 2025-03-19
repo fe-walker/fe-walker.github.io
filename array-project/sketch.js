@@ -46,6 +46,8 @@ function spawnGhost(){
 
 function preload(){
   thing = loadImage("ghost-image-transparent.png");
+  startScreen = loadImage("start-screen-ghosthunter.png");
+  mainScreen = loadImage("main-screen-ghosthunter.png");
 }
 
 function displayGhosts(ghost){
@@ -69,6 +71,7 @@ function changeScreenIfNeeded(){
     }
   }
   else if (screen === "play"){
+    displayMainScreen();
     for (let ghost of ghostArray){
       moveGhosts(ghost);
       displayGhosts(ghost);
@@ -89,20 +92,17 @@ function changeScreenIfNeeded(){
 }
 
 function displayInstruction(){
-  fill("#1a0704");
-  rect(0,0,width,height);
-  fill("#2b0c08");
-  rect(width- 550,0,width - 500,height);
-  fill("rgb(63, 21, 14)");
-  rect(295,0,width - 600,height);
-  fill("rgb(247, 232, 232)");
-  text("GHOST HUNTER", width/2.25, height/2);
+  image(startScreen, 0, 0, windowWidth, windowHeight);
+}
+
+function displayMainScreen(){
+  image(mainScreen, windowWidth/2, windowHeight/2, windowWidth, windowHeight);
 }
 
 function mousePressed(){
   for (let ghost of ghostArray){
-    if (dist(mouseX, mouseY, ghost.x, ghost.y) < ghost.w){
-      // the ghosts are dying no matter where i click change this 
+    if (ghost.x - ghost.w/2 < mouseX &&  mouseX < ghost.x + ghost.w/2 && ghost.y - ghost.h/2 < mouseY && mouseY < ghost.y + ghost.h/2){
+      // still isnt working ?
       let index = ghostArray.indexOf(ghost);
       ghostArray.splice(index, 1);
       ghostSize = 0;
@@ -129,3 +129,4 @@ function showGhosts(){
   spawnGhost();
   window.setInterval(spawnGhost, 500);
 }
+
