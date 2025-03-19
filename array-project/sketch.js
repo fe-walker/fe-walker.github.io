@@ -69,17 +69,13 @@ function changeScreenIfNeeded(){
     }
   }
   else if (screen === "play"){
-    // showGhosts();
-    // imageMode(CENTER);
-    // spawnGhost();
-    // window.setInterval(spawnGhost, 500);
     for (let ghost of ghostArray){
       moveGhosts(ghost);
       displayGhosts(ghost);
-      if (ghostSize > 400){
-        clear();
-        screen = "dead";
-      }
+    }
+    if (ghostSize > 400){
+      clear();
+      screen = "dead";
     }
   }
   else if (screen === "dead"){
