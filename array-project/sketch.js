@@ -85,9 +85,6 @@ function changeScreenIfNeeded(){
     clear();
     ghostSize = 0;
     // show dead screen
-    if (keyCode === 82){
-      screen = "start";
-    }
   }
 }
 
