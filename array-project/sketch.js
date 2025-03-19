@@ -6,14 +6,14 @@
 // - describe what you did to take this project "above and beyond"
 
 
-// want to center my brown rectangles so text is centered, when you click the ghost disappears, win screen
+// to-d0 
+// finish death screen, create more instructions, make it so the shot text goes away after a bit, maybe change shooting a little 
 
 let x;
 let y;
 let ghostArray = [];
 let thing;
 let screen = "start";
-let isAlive = true;
 let ghostSize = 0;
 let deathSpots = [];
 
@@ -21,8 +21,6 @@ let deathSpots = [];
 function setup() {
   createCanvas(windowWidth, windowHeight);
   cursor(CROSS);
-
-  // showGhosts();
 }
 
 function draw() {
