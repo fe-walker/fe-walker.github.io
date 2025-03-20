@@ -7,7 +7,7 @@
 
 
 // to-d0 
-// finish death screen, create more instructions, make it so the shot text goes away after a bit, maybe change shooting a little 
+// make it so the shot text goes away after a bit, 
 
 let x;
 let y;
@@ -16,7 +16,9 @@ let thing;
 let screen = "start";
 let ghostSize = 0;
 let deathSpots = [];
-
+let ghostsShot;
+let waitTime = 5;
+let lastSwitchedTime = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -47,6 +49,8 @@ function preload(){
   startScreen = loadImage("start-screen-ghosthunter.png");
   mainScreen = loadImage("main-screen-ghosthunter.png");
   endScreen = loadImage("end-screen-ghosthunter.png");
+  winScreen = loadImage("end-screen-ghosthunter.png"); 
+  // add win screen later at home !!
 }
 
 function displayGhosts(ghost){
@@ -65,6 +69,7 @@ function changeScreenIfNeeded(){
     displayInstruction();
     if (keyCode === ENTER){
       clear(); 
+      ghostsShot = 0;
       screen = "play";
       showGhosts();
     }
@@ -74,10 +79,15 @@ function changeScreenIfNeeded(){
     for (let ghost of ghostArray){
       moveGhosts(ghost);
       displayGhosts(ghost);
+      removeShots();
     }
     if (ghostSize > 400){
       clear();
       screen = "dead";
+    }
+    else if (ghostsShot === 50){
+      clear();
+      screen = "win";
     }
   }
   else if (screen === "dead"){
@@ -85,29 +95,42 @@ function changeScreenIfNeeded(){
     ghostSize = 0;
     displayEndScreen();
   }
+  else if (screen === "win"){
+    clear();
+    ghostSize = 0;
+    displayWinScreen();
+  }
 }
 
 function displayInstruction(){
   image(startScreen, 0, 0, windowWidth, windowHeight);
   fill("white");
-  text("Press enter to begin, use mouse to aim and shoot to kill the ghosts", 600, 600);
+  text("Press enter to begin, use mouse to aim and shoot to kill the ghosts", windowWidth/2 -200, windowHeight/2 + 100);
 }
 
 function displayMainScreen(){
   image(mainScreen, windowWidth/2, windowHeight/2, windowWidth, windowHeight);
+  fill("white");
+  text(ghostsShot, 50, 50);
 }
 
 function displayEndScreen(){
   image(endScreen, windowWidth/2, windowHeight/2, windowWidth, windowHeight);
 }
 
+function displayWinScreen(){
+  image(winScreen, windowWidth/2, windowHeight/2, windowWidth, windowHeight);
+  fill("white");
+  text(ghostsShot, 300, 50);
+}
+
 function mousePressed(){
   for (let ghost of ghostArray){
     if (ghost.x - ghost.w/2 < mouseX &&  mouseX < ghost.x + ghost.w/2 && ghost.y - ghost.h/2 < mouseY && mouseY < ghost.y + ghost.h/2){
-      // still isnt working ?
       let index = ghostArray.indexOf(ghost);
       ghostArray.splice(index, 1);
       ghostSize = 0;
+      ghostsShot += 1;
     }
   }
   let spot = {
@@ -120,8 +143,8 @@ function mousePressed(){
 function showShot(){
   if (screen === "play"){
     for (let shot of deathSpots){
-      fill("green");
-      text("shot", shot.x, shot.y);
+      fill("red");
+      text("X", shot.x, shot.y);
     }
   }
 }
@@ -130,5 +153,15 @@ function showGhosts(){
   imageMode(CENTER);
   spawnGhost();
   window.setInterval(spawnGhost, 500);
+}
+
+function removeShots(){
+  for (let shot of deathSpots){
+    if (millis() > lastSwitchedTime + waitTime){
+      let indexOfShots = deathSpots.indexOf(shot);
+      deathSpots.splice(indexOfShots, 1);
+      lastSwitchedTime += 1000;
+    }
+  }
 }
 
