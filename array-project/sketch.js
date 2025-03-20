@@ -46,6 +46,7 @@ function preload(){
   thing = loadImage("ghost-image-transparent.png");
   startScreen = loadImage("start-screen-ghosthunter.png");
   mainScreen = loadImage("main-screen-ghosthunter.png");
+  endScreen = loadImage("end-screen-ghosthunter.png");
 }
 
 function displayGhosts(ghost){
@@ -82,16 +83,22 @@ function changeScreenIfNeeded(){
   else if (screen === "dead"){
     clear();
     ghostSize = 0;
-    // show dead screen
+    displayEndScreen();
   }
 }
 
 function displayInstruction(){
   image(startScreen, 0, 0, windowWidth, windowHeight);
+  fill("white");
+  text("Press enter to begin, use mouse to aim and shoot to kill the ghosts", 600, 600);
 }
 
 function displayMainScreen(){
   image(mainScreen, windowWidth/2, windowHeight/2, windowWidth, windowHeight);
+}
+
+function displayEndScreen(){
+  image(endScreen, windowWidth/2, windowHeight/2, windowWidth, windowHeight);
 }
 
 function mousePressed(){
