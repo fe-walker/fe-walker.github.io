@@ -20,7 +20,7 @@ let deathSpots = [];
 let ghostsShot;
 let waitTime = 5;
 let lastSwitchedTime = 0;
-const audioElement = new Audio("car_horn.wav");
+const audioElement = new Audio("boom-sound-effect.mp3");
 // add my own sound 
 
 
