@@ -3,10 +3,8 @@
 // 3/20/2025
 //
 // Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+// I added a sound effect when the ghosts get shot, drew my own visuals.
 
-// to do
-// extra for experts
 
 
 // set variables 
@@ -21,7 +19,6 @@ let ghostsShot;
 let waitTime = 5;
 let lastSwitchedTime = 0;
 const audioElement = new Audio("boom-sound-effect.mp3");
-// add my own sound 
 
 
 function setup() {
@@ -93,7 +90,7 @@ function changeScreenIfNeeded(){
       clear();
       screen = "dead";
     }
-    else if (ghostsShot === 50){
+    else if (ghostsShot === 150){
       clear();
       screen = "win";
     }
