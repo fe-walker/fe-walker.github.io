@@ -20,6 +20,8 @@ let deathSpots = [];
 let ghostsShot;
 let waitTime = 5;
 let lastSwitchedTime = 0;
+const audioElement = new Audio("car_horn.wav");
+// add my own sound 
 
 
 function setup() {
@@ -138,6 +140,7 @@ function displayWinScreen(){
 function mousePressed(){
   for (let ghost of ghostArray){
     if (ghost.x - ghost.w/2 < mouseX &&  mouseX < ghost.x + ghost.w/2 && ghost.y - ghost.h/2 < mouseY && mouseY < ghost.y + ghost.h/2){
+      audioElement.play();
       let index = ghostArray.indexOf(ghost);
       ghostArray.splice(index, 1);
       ghostSize = 0;
