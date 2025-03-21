@@ -52,8 +52,7 @@ function preload(){
   startScreen = loadImage("start-screen-ghosthunter.png");
   mainScreen = loadImage("main-screen-ghosthunter.png");
   endScreen = loadImage("end-screen-ghosthunter.png");
-  winScreen = loadImage("end-screen-ghosthunter.png"); 
-  // add win screen later at home !!
+  winScreen = loadImage("win-screen-ghosthunter.png"); 
 }
 
 // displays the image of the ghosts
