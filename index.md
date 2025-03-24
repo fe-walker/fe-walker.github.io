@@ -8,6 +8,7 @@
 - [Bubble object notation and array demo](07-bubbles)
 - [2D array grid](08-grid)
 - [Grid neighbours](09-neighbours)
+- [Rectangle Grid](10-rectangle-grid)
 
 # CS30 projects
 - [Interactive Scene](interactive-scene)
