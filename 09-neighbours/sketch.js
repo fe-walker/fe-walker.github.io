@@ -85,11 +85,13 @@ function mousePressed(){
 }
 
 function toggleCell(x, y){
-  if (grid[y][x] === 0){
-    grid[y][x] = 1;
-  }
-  else if (grid[y][x]){
-    grid[y][x] = 0;
+  if (x >= 0 && x < SQAURE_DIMENSIONS && y >= 0 && y < SQAURE_DIMENSIONS){
+    if (grid[y][x] === 0){
+      grid[y][x] = 1;
+    }
+    else if (grid[y][x]){
+      grid[y][x] = 0;
+    }
   }
 }
 
