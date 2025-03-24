@@ -31,6 +31,9 @@ function keyPressed(){
   if (key === "r"){
     grid = generateRandomGrid(SQAURE_DIMENSIONS, SQAURE_DIMENSIONS);
   }
+  else if (key === "e"){
+    grid = generateGrid(SQAURE_DIMENSIONS, SQAURE_DIMENSIONS);
+  }
 }
 function displayGrid(){
   for (let y = 0; y < SQAURE_DIMENSIONS; y++){
@@ -62,7 +65,7 @@ function generateRandomGrid(cols, rows){
   for (let y = 0; y < rows; y ++){
     newGrid.push([]);
     for (let x = 0; x < cols; x ++){
-      if (random(100) < 50){
+      if (random(100) > 50){
         newGrid[y].push(0);
       }
       else{
@@ -72,3 +75,20 @@ function generateRandomGrid(cols, rows){
   }
   return newGrid;
 }
+
+function mousePressed(){
+  let x = Math.floor(mouseX/cellSize);
+  let y = Math.floor(mouseY/cellSize);
+
+  toggleCell(x, y);
+}
+
+function toggleCell(x, y){
+  if (grid[y][x] === 0){
+    grid[y][x] = 1;
+  }
+  else if (grid[y][x]){
+    grid[y][x] = 0;
+  }
+}
+

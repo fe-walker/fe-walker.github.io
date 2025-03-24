@@ -7,6 +7,7 @@
 - [Terrain generation demo](06-terrain-demo)
 - [Bubble object notation and array demo](07-bubbles)
 - [2D array grid](08-grid)
+- [Grid neighbours](09-neighbours)
 
 # CS30 projects
 - [Interactive Scene](interactive-scene)
