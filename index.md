@@ -13,5 +13,6 @@
 - [Character movement demo](12-character-movement)
 
 # CS30 projects
-- [Interactive Scene](interactive-scene)
-- [Arrays and Object Notation Assignment](array-project)
+- [Interactive Scene](a-interactive-scene)
+- [Arrays and Object Notation Assignment](b-array-project)
+- [2D Array Project](c-2d-array-project)
