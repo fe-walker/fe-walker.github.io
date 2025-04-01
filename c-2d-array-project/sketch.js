@@ -6,6 +6,7 @@
 // - describe what you did to take this project "above and beyond"
 
 // to-do
+// make 2-d array to place the second colour
 // state variables
 // style.css stuff 
 // put second colour in random spot funtion
@@ -104,6 +105,7 @@ function mousePressed(){
 
   changeFillColour();
   clickCount++;
+  // when click count reaches number of colours stop game
 
 }
 
