@@ -19,7 +19,7 @@ let rows = 10;
 let cols = 10;
 let mainColour = ["#3446eb", "#c40c1e", "#09660c","#f7f486", "#e36dc7", "#ffc8ab", "#abeaff", "#093d4f", "#8d1cba"];
 // still need to decide amount of levels, can go up to 25 but it gets laggy
-let secondColour = ["#2a3bdb","#c21324","#09630c","#f7f48f","#e065c4", "#ffcdb3", "#a3ddf0", "#063c4f", "#9623c4"];
+let secondColour = ["#2a3bdb","#c21324","#09630c","#f0ed81","#e065c4", "#ffcdb3", "#a3ddf0", "#053040", "#9623c4"];
 let clickCount = 0;
 let screen = "start";
 const OPEN_TILE = 0;
@@ -104,6 +104,7 @@ function mousePressed(){
 
   changeFillColour();
   clickCount++;
+
 }
 
 function changeFillColour(){
