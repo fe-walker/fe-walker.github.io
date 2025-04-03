@@ -20,10 +20,10 @@ let cellSize = 60;
 let grid;
 let rows = 10;
 let cols = 10;
-let mainColour = ["#3446eb", "#c40c1e", "#09660c","#f7f486", "#e36dc7", "#ffc8ab", "#abeaff", "#093d4f", "#8d1cba"];
+let mainColour = ["#3446eb", "#c40c1e", "#09660c","#f7f486", "#e36dc7", "#ffc8ab", "#abeaff", "#093d4f", "#8d1cba", "#3446eb", "#c40c1e", "#09660c","#f7f486", "#e36dc7", "#ffc8ab", "#abeaff", "#093d4f", "#8d1cba"];
 // still need to decide amount of levels, can go up to 25 but it gets laggy
-let secondColour = ["#2a3bdb","#c21324","#09630c","#f0ed81","#e065c4", "#ffcdb3", "#a3ddf0", "#053040", "#9623c4"];
-let clickCount;
+let secondColour = ["#2a3bdb","#c21324","#09630c","#f0ed81","#e065c4", "#ffcdb3", "#a3ddf0", "#053040", "#9623c4", "#2a3bdb","#c21324","#09630c","#f0ed81","#e065c4", "#ffcdb3", "#a3ddf0", "#053040", "#9623c4"];
+let clickCount = 0;
 let attempts;
 let screen = "intro";
 const MAIN = 0;
@@ -50,17 +50,22 @@ function changeScreen(){
     if (keyCode === 13){
       screen = "start";
     }
+    console.log(screen);
   }
   else if (screen === "start"){
-
-    clickCount = 0;
-    attempts = 0;
+    console.log(screen);
+    // clickCount = 0;
+    // attempts = 0;
     displayGrid();
+    if (attempts === 5){
+      screen = "lost";
+    }
   }
   else if (screen === "won"){
-
+    console.log(screen);
   }
   else if (screen === "lost"){
+    console.log(screen);
     // happens when you make too many attempts on one level
   }
 }
@@ -74,6 +79,7 @@ function displayGrid(){
       else if (grid[y][x] === ODD){
         fill(secondColour[clickCount]);
       }
+      // changeFillColour();
       rect(x*cellSize, y*cellSize, cellSize, cellSize);
     }
   }
@@ -86,7 +92,7 @@ function generateGrid(cols, rows){
     newGrid.push([]);
     for (let x = 0; x < cols; x ++){
       // pick one spot for the odd one out 
-      if (spot === 1){
+      if (random(10) > 5){
         newGrid.push([ODD]);
       }
       else{
@@ -102,7 +108,6 @@ function generateGrid(cols, rows){
 
 function mousePressed(){
 
-  // pretty sure this math doesnt work for my code, need to change it 
 
   if (screen === "start"){
 
@@ -114,38 +119,28 @@ function mousePressed(){
 function changeLevelIfNeeded(){
   let x = Math.floor(mouseX/cellSize);
   let y = Math.floor(mouseY/cellSize);
-  for (let i = 0; i < rows; i++){
-    for (let j = 0; j < cols; j++){
-      if (x === ODD && y === ODD){ 
-        // dont know what this argument will be yet; depends on my second colour position
-        cellSize = cellSize - 2;
-        cols = cols + 2;
-        rows = rows + 2;
+  // if (x === ODD && y === ODD){ 
+  // dont know what this argument will be yet; depends on my second colour position
+  cellSize = cellSize - 2;
+  cols = cols + 2;
+  rows = rows + 2;
       
-        changeFillColour();
-        clickCount++;
-        if (clickCount === 10){
-          // end game bc you won
-        }
-      }
-      else{
-        // idk what im gonna put here yet 
-        attempts++;
-        // adds attempt per each time you click the wrong spot 
-        clickCount = clickCount - 1; 
-        // dont count the last click
-      }
-    }
-  }
+  changeFillColour();
+  clickCount++;
 }
 
 function changeFillColour(){
-  if (random(100) < 50 ){
-    fill(mainColour[clickCount]);
+  for (let y = 0; y < rows; y++){
+    for (let x = 0; x < cols; x++){
+      if (grid[y][x] === MAIN){
+        fill(mainColour[clickCount]);
+      }
+      else if (grid[y][x] === ODD){
+        fill(secondColour[clickCount]);
+      }
+    }
   }
-  else{
-    fill(secondColour[clickCount]);
-  }
+
   console.log(mainColour[clickCount]);
   console.log(secondColour[clickCount]);
 }
