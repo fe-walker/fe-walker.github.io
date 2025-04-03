@@ -6,14 +6,8 @@
 // - describe what you did to take this project "above and beyond"
 
 // to-do
-// make 2-d array to place the second colour
-// state variables
+// finish state variables
 // style.css stuff 
-// put second colour in random spot funtion
-// add if statement to mouse pressed function (dependant on second colour function)
-// decide how many attempts for a level
-
-// if i click one thats the main colour not the second colour end game?
 
 
 let cellSize = 60; 
@@ -21,16 +15,13 @@ let grid;
 let rows = 10;
 let cols = 10;
 let mainColour = ["#3446eb", "#c40c1e", "#09660c","#f7f486", "#e36dc7", "#ffc8ab", "#abeaff", "#093d4f", "#8d1cba", "#3446eb", "#c40c1e", "#09660c","#f7f486", "#e36dc7", "#ffc8ab", "#abeaff", "#093d4f", "#8d1cba"];
-// still need to decide amount of levels, can go up to 25 but it gets laggy
 let secondColour = ["#2a3bdb","#c21324","#09630c","#f0ed81","#e065c4", "#ffcdb3", "#a3ddf0", "#053040", "#9623c4", "#2a3bdb","#c21324","#09630c","#f0ed81","#e065c4", "#ffcdb3", "#a3ddf0", "#053040", "#9623c4"];
 let clickCount = 0;
 let attempts;
 let screen = "intro";
 const MAIN = 0;
 const ODD = 1;
-let spot = 1;
-// want to pull two colours, one from the main list and another thats either lighter or darker from the second list,
-//  randomly pick where to put the second colour and fill the rest of the grid with the first colour
+let spot;
 
 
 function setup() {
@@ -79,7 +70,6 @@ function displayGrid(){
       else if (grid[y][x] === ODD){
         fill(secondColour[clickCount]);
       }
-      // changeFillColour();
       rect(x*cellSize, y*cellSize, cellSize, cellSize);
     }
   }
@@ -94,9 +84,11 @@ function generateGrid(cols, rows){
       // pick one spot for the odd one out 
       if (random(10) > 5){
         newGrid.push([ODD]);
+        spot = ODD;
       }
       else{
         newGrid.push([MAIN]);
+        spot = MAIN;
       }
     }
   }
@@ -119,14 +111,22 @@ function mousePressed(){
 function changeLevelIfNeeded(){
   let x = Math.floor(mouseX/cellSize);
   let y = Math.floor(mouseY/cellSize);
-  // if (x === ODD && y === ODD){ 
-  // dont know what this argument will be yet; depends on my second colour position
-  cellSize = cellSize - 2;
-  cols = cols + 2;
-  rows = rows + 2;
+  if (spot === ODD){ 
+  // need to change because x & y r not 1 or 0, they're the co-ordinates for the spot on the grid
+    cellSize = cellSize - 2;
+    cols = cols + 2;
+    rows = rows + 2;
       
-  changeFillColour();
-  clickCount++;
+    changeFillColour();
+    clickCount++;
+    // console.log(clickCount);
+    console.log(x);
+    console.log(y);
+  }
+  else{
+    // clickCount = clickCount - 1;
+    attempts++;
+  }
 }
 
 function changeFillColour(){
