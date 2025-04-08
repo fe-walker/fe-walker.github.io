@@ -42,6 +42,7 @@ function draw() {
 // state variables that change if you win/lose
 function changeScreen(){
   if(screen === "intro"){
+    displayIntroText();
     if (keyCode === 13){
       screen = "start";
     }
@@ -69,14 +70,14 @@ function changeScreen(){
 
 function displayIntroText(){
   if (screen === "intro"){
-    text('Welcome to the colour picker test');
-    text('The grid will display two colours, and you will see text telling you if you are looking for the darker or lighter colour.');
-    text("Once you've decided which is the odd colour out, click it");
-    text("You have 5 attempts for the whole game, if you choose the wrong colour, you lose an attempt.");
-    text("It will get more and more difficult to choose the odd colour out as the grid expands");
-    text("You win if you succesfully complete all 18 levels with under 5 wrong attempts");
-    text("You lose immediately if you use all five attempts.");
-    text('Good luck! You may press the enter key to begin playing');
+    text('Welcome to the colour picker test', 0, 10);
+    text('The grid will display two colours, and you will see text telling you if you are looking for the darker or lighter colour.', 0, 20);
+    text("Once you've decided which is the odd colour out, click it", 0, 30);
+    text("You have 5 attempts for the whole game, if you choose the wrong colour, you lose an attempt.", 0, 40);
+    text("It will get more and more difficult to choose the odd colour out as the grid expands", 0, 50);
+    text("You win if you succesfully complete all 18 levels with under 5 wrong attempts", 0, 60);
+    text("You lose immediately if you use all five attempts.", 0, 70);
+    text('Good luck! You may press the enter key to begin playing', 0, 80);
   }
 }
 
