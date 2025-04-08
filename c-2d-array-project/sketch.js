@@ -23,10 +23,8 @@ let attempts = 0;
 let screen = "intro";
 
 //colours to iterate through 
-let mainColour = ["#3446eb", "#c40c1e", "#09660c","#f7f486", "#e36dc7", "#ffc8ab", "#abeaff", "#093d4f", "#8d1cba", 
-  "#3446eb", "#c40c1e", "#09660c","#f7f486", "#e36dc7", "#ffc8ab", "#abeaff", "#093d4f", "#8d1cba"];
-let secondColour = ["#2a3bdb","#c21324","#09630c","#f0ed81","#e065c4", "#ffcdb3", "#a3ddf0", "#053040", "#9623c4", 
-  "#2a3bdb","#c21324","#09630c","#f0ed81","#e065c4", "#ffcdb3", "#a3ddf0", "#053040", "#9623c4"];
+let mainColour = ["#093d4f", "#eb345f", "#3446eb", "#9ceb34", "#8d1cba", "#544fdb", "#e36dc7", "#ff7614", "#abeaff", "#800416", "#ffc8ab", "#04805c", "#f7f486", "#c886f7", "#c40c1e", "#0c8dc4", "#09660c", "#f7a8b4"];
+let secondColour = ["#053040", "#e64767", "#2a3bdb", "#8ad126", "#9623c4", "#534bc9", "#e065c4", "#f7791e", "#a3ddf0", "#800819", "#ffcdb3", "#057d5a", "#f0ed81", "#c481f0", "#c21324", "#0c93c4", "#09630c", "#f7a8b4"];
 
 
 function setup() {
@@ -67,6 +65,27 @@ function changeScreen(){
     console.log(screen);
     // happens when you make too many attempts on one level
   }
+}
+
+function displayIntroText(){
+  if (screen === "intro"){
+    text('Welcome to the colour picker test');
+    text('The grid will display two colours, and you will see text telling you if you are looking for the darker or lighter colour.');
+    text("Once you've decided which is the odd colour out, click it");
+    text("You have 5 attempts for the whole game, if you choose the wrong colour, you lose an attempt.");
+    text("It will get more and more difficult to choose the odd colour out as the grid expands");
+    text("You win if you succesfully complete all 18 levels with under 5 wrong attempts");
+    text("You lose immediately if you use all five attempts.");
+    text('Good luck! You may press the enter key to begin playing');
+  }
+}
+
+function displayLostText(){
+
+}
+
+function displayWonText(){
+
 }
 
 function displayGrid(){
