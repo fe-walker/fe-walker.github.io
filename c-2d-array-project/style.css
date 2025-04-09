@@ -13,3 +13,12 @@ body{
 canvas {
   display: block;
 }
+
+/* text{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  transform: translate(50%, 50%);
+} */
+
+/* want my text to be next to the grid, not inside of it */

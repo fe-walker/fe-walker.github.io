@@ -23,9 +23,8 @@ let attempts = 0;
 let screen = "intro";
 
 //colours to iterate through 
-let mainColour = ["#053040", "#eb345f", , "#9ceb34", "#8d1cba", "#544fdb", "#e36dc7", "#ff7614", "#abeaff", "#800416", "#ffc8ab", "#04805c", "#f7f486", "#c886f7", "#c40c1e", "#0c8dc4", "#09660c", "#f7a8b4"];
-let secondColour = ["#093d4f", "#e64767", "#3446eb", "#8ad126", "#9623c4", "#534bc9", "#e065c4", "#f7791e", "#a3ddf0", "#800819", "#ffcdb3", "#057d5a", "#f0ed81", "#c481f0", "#c21324", "#0c93c4", "#09630c", "#f7a8b4"];
-
+let mainColour = ["#053040", "#eb345f", "#2a3bdb" , "#8ad126", "#8d1cba", "#534bc9", "#e065c4", "#ff7614", "#a3ddf0", "#800416", "#ffc8ab", "#057d5a", "#f0ed81", "#c481f0", "#c40c1e", "#0c8dc4", "#09630c", "#f7a8b4"];
+let secondColour = ["#093d4f", "#e64767", "#3446eb", "#9ceb34", "#9623c4", "#544fdb", "#e36dc7", "#f7791e", "#abeaff", "#800819", "#ffcdb3", "#04805c", "#f7f486", "#c886f7", "#c21324", "#0c93c4", "#09660c", "#f7a8b4"];
 
 function setup() {
   createCanvas(cellSize * cols, cellSize * rows);
@@ -71,10 +70,10 @@ function changeScreen(){
 function displayIntroText(){
   if (screen === "intro"){
     text('Welcome to the colour picker test', 0, 10);
-    text('The grid will display two colours, and you will see text telling you if you are looking for the darker or lighter colour.', 0, 20);
-    text("Once you've decided which is the odd colour out, click it", 0, 30);
+    text('The grid will display two colours, and you have to find the lighter colour', 0, 20);
+    text("Once you've decided which is lighter, click it", 0, 30);
     text("You have 5 attempts for the whole game, if you choose the wrong colour, you lose an attempt.", 0, 40);
-    text("It will get more and more difficult to choose the odd colour out as the grid expands", 0, 50);
+    text("It will get more and more difficult to choose the lighter colour out as the grid expands", 0, 50);
     text("You win if you succesfully complete all 18 levels with under 5 wrong attempts", 0, 60);
     text("You lose immediately if you use all five attempts.", 0, 70);
     text('Good luck! You may press the enter key to begin playing', 0, 80);
