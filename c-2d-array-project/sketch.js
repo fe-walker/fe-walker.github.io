@@ -23,8 +23,8 @@ let attempts = 0;
 let screen = "intro";
 
 //colours to iterate through 
-let mainColour = ["#093d4f", "#eb345f", "#3446eb", "#9ceb34", "#8d1cba", "#544fdb", "#e36dc7", "#ff7614", "#abeaff", "#800416", "#ffc8ab", "#04805c", "#f7f486", "#c886f7", "#c40c1e", "#0c8dc4", "#09660c", "#f7a8b4"];
-let secondColour = ["#053040", "#e64767", "#2a3bdb", "#8ad126", "#9623c4", "#534bc9", "#e065c4", "#f7791e", "#a3ddf0", "#800819", "#ffcdb3", "#057d5a", "#f0ed81", "#c481f0", "#c21324", "#0c93c4", "#09630c", "#f7a8b4"];
+let mainColour = ["#053040", "#eb345f", , "#9ceb34", "#8d1cba", "#544fdb", "#e36dc7", "#ff7614", "#abeaff", "#800416", "#ffc8ab", "#04805c", "#f7f486", "#c886f7", "#c40c1e", "#0c8dc4", "#09660c", "#f7a8b4"];
+let secondColour = ["#093d4f", "#e64767", "#3446eb", "#8ad126", "#9623c4", "#534bc9", "#e065c4", "#f7791e", "#a3ddf0", "#800819", "#ffcdb3", "#057d5a", "#f0ed81", "#c481f0", "#c21324", "#0c93c4", "#09630c", "#f7a8b4"];
 
 
 function setup() {
