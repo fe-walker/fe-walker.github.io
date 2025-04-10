@@ -3,7 +3,7 @@
 // 4/10/2025
 //
 // Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+// Didn't have time to attempt/finish extra for experts
 
 
 // set constants
