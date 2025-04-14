@@ -13,6 +13,7 @@
 - [Character movement demo](12-character-movement)
 - [Platformer/loading text files demo](13-platformer-demo)
 - [OOP Walker demo](14-walker-demo)
+- [OOP Firework demo](15-fireworks)
 
 # CS30 projects
 - [Interactive Scene](a-interactive-scene)
