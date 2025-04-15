@@ -14,6 +14,7 @@
 - [Platformer/loading text files demo](13-platformer-demo)
 - [OOP Walker demo](14-walker-demo)
 - [OOP Firework demo](15-fireworks)
+- [OOP Connected nodes demo](16-connected-nodes)
 
 # CS30 projects
 - [Interactive Scene](a-interactive-scene)
