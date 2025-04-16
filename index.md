@@ -15,6 +15,7 @@
 - [OOP Walker demo](14-walker-demo)
 - [OOP Firework demo](15-fireworks)
 - [OOP Connected nodes demo](16-connected-nodes)
+- [Rotate Translate demo](17-rotate-translate)
 
 # CS30 projects
 - [Interactive Scene](a-interactive-scene)
