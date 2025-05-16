@@ -18,6 +18,7 @@
 - [Rotate Translate demo](17-rotate-translate)
 - [Local Storage demo](18-storage-demo)
 - [2D collide demo](20-2d-collide)
+- [OOP inheritance demo](21-inheritance)
 
 # CS30 projects
 - [Interactive Scene](a-interactive-scene)
