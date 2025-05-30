@@ -19,6 +19,7 @@
 - [Local Storage demo](18-storage-demo)
 - [2D collide demo](20-2d-collide)
 - [OOP inheritance demo](21-inheritance)
+- [Recursion triangle](22-triangle)
 
 # CS30 projects
 - [Interactive Scene](a-interactive-scene)
